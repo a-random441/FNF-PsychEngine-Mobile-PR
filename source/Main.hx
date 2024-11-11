@@ -167,7 +167,7 @@ class Main extends Sprite
 
 		#if mobile
 		LimeSystem.allowScreenTimeout = ClientPrefs.data.screensaver; 
-		if(ClientPrefs.wideScreen == true) // detects if wide screen is enabled at the start
+		if(ClientPrefs.wideScreen == true) // detects if wide screen is enabled at the start (very cool patch)
 		{
 		   FlxG.scaleMode = new MobileScaleMode();
 		}
