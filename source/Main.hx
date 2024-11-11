@@ -13,6 +13,7 @@ import states.TitleState;
 import mobile.backend.MobileScaleMode;
 import openfl.events.KeyboardEvent;
 import lime.system.System as LimeSystem;
+import backend.ClientPrefs;
 #if COPYSTATE_ALLOWED
 import states.CopyState;
 #end
@@ -165,8 +166,11 @@ class Main extends Sprite
 		#if android FlxG.android.preventDefaultKeys = [BACK]; #end
 
 		#if mobile
-		LimeSystem.allowScreenTimeout = ClientPrefs.data.screensaver; 		
-		FlxG.scaleMode = new MobileScaleMode();
+		LimeSystem.allowScreenTimeout = ClientPrefs.data.screensaver; 
+		if(ClientPrefs.wideScreen == true) // detects if wide screen is enabled at the start
+		{
+		   FlxG.scaleMode = new MobileScaleMode();
+		}
 		#end
 
 		// shader coords fix
